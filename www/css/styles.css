@@ -1,0 +1,74 @@
+/* styles.css */
+p, h1, h2, h3 {
+  color: #bcc2cc;
+}
+
+body {
+  background-color: #1c1d1f;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+#title {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #1c1d1f;
+}
+#title h1 {
+  text-align: center;
+  color: #bcc2cc;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  padding: 0 20px 0 20px;
+  margin-bottom: 0.2%;
+  justify-content: right;
+}
+
+nav div.center {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
+nav div.center button {
+  margin: 10px 0 10px 0;
+}
+
+nav p#selected-month {
+  padding: 0 15px 0 15px;
+}
+
+img#setting-icon {
+  padding: 5%;
+  border-radius: 10%;
+  height: 24px;
+  width: auto;
+}
+
+#calendar-grid {
+  margin: auto;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: calc(90% - 40px);
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.cell {
+  flex-grow: 1;
+  margin: 0.1%;
+  padding: 2%;
+  width: 10%;
+  height: 10em;
+  border-radius: 1px;
+  background-color: #27282b;
+  color: #bcc2cc;
+}

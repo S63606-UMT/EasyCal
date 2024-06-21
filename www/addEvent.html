@@ -1,0 +1,40 @@
+<!-- addEvent.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/addEvent.css" />
+    <title>Add Event</title>
+  </head>
+  <body>
+    <h1>Add Event for <span id="date"></span></h1>
+    <form>
+      <textarea id="notes" placeholder="Add notes"></textarea>
+      <button type="submit">Save</button>
+    </form>
+
+    <script>
+      // Get the date from the URL parameter
+      var dateParam = new URLSearchParams(window.location.search).get('date');
+      var date = new Date(dateParam);
+
+      // Display the date on the page
+      document.getElementById('date').textContent = date.toLocaleString('default', { day: 'numeric', month: 'long' });
+
+      // Save the notes when the form is submitted
+      document.getElementById('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var notes = document.getElementById('notes').value;
+        var notesObject = localStorage.getItem('notes');
+        if (notesObject) {
+          notesObject = JSON.parse(notesObject);
+        } else {
+          notesObject = {};
+        }
+        notesObject[date.getDate()] = notes;
+        localStorage.setItem('notes', JSON.stringify(notesObject));
+      });
+    </script>
+  </body>
+</html>
